@@ -1,2 +1,2 @@
 # jsDemos
-http://www.loveyunk.com/jsDemos/
+http://www.loveyunk.com/jsdemos/
