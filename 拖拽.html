@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽</title>
+    <style>
+        #pane {
+            position: absolute;
+            width: 45%;
+            height: 45%;
+            top: 20%;
+            left: 20%;
+            border: 2px solid purple;
+            margin: 0;
+            padding: 0;
+            z-index: 99;
+            background: #fefefe;
+        }
+        #title {
+            font-family: Helvetica, Arial, sans-serif;
+            background: purple;
+            color: #fff;
+            height: 30px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="pane">
+        <div id="title">Resize, Drag or Snap Me!</div>
+    </div>
+
+    <div id="ghostpane"></div>
+
+    <script>
+
+        // 可调整最小范围
+        let minWidth = 60,
+            minHeight = 40;
+
+        let pane = document.getElementById('pane');
+
+        // Mouse events
+        pane.addEventListener('mousedown', onMouseDown, false);
+        document.addEventListener('mousemove', onMove, false);
+        document.addEventListener('mouseup', onUp, false);
+
+        function onMouseDown (e) {
+            onDown(e);
+            e.preventDefault();
+        }
+
+        function onDown (e) {
+            calc(e);
+
+            let isResizing = onRightRdge || onBottomEdge || onTopEdge || onLeftEdge;
+
+            clicked = {
+
+            }
+        }
+
+
+
+
+    </script>
+</body>
+</html>
