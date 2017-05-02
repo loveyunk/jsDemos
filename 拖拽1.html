@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽1</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+
+<script>
+
+    let oBox = document.querySelector('.box'),
+
+        disX = 0,
+        disY = 0;
+
+    oBox.onmousedown = function (e) {
+
+        disX = e.clientX - oBox.offsetLeft;
+        disY = e.clientY - oBox.offsetTop;
+
+        document.onmousemove = function (e) {
+
+            let l = e.clientX - disX,
+                t = e.clientY - disY;
+
+            if (l < 50) {
+                l = 0;
+            } else if (l > document.documentElement.clientWidth - oBox.clientWidth) {
+                l = document.documentElement.clientWidth - oBox.clientWidth;
+            }
+
+            if (t < 50) {
+                t = 0;
+            } else if (t > document.documentElement.clientHeight - oBox.clientHeight) {
+                t = document.documentElement.clientHeight - oBox.clientHeight;
+            }
+
+            oBox.style.left = l + 'px';
+            oBox.style.top = t + 'px';
+        };
+
+        document.onmouseup = function () {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+
+        return false;
+
+    }
+
+</script>
+</body>
+</html>
