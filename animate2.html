@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        li {
+            list-style: none;
+            width: 300px;
+            height: 5px;
+            background-color: #ddd;
+            margin: 20px 0;
+        }
+        li>.bar {
+            width: 0;
+            height: 5px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li data-percent="60">
+            <div class="bar"></div>
+        </li>
+        <li data-percent="90">
+            <div class="bar"></div>
+        </li>
+        <li data-percent="83">
+            <div class="bar"></div>
+        </li>
+        <li data-percent="56">
+            <div class="bar"></div>
+        </li>
+        <li data-percent="71">
+            <div class="bar"></div>
+        </li>
+    </ul>
+</div>
+
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+
+    $(function () {
+        $('li>.bar').each(function (i, e) {
+            $(this).delay(i*500).animate({
+                width: $(this).parent().data('percent')+'%'
+            }, 2000, 'linear');
+        });
+    });
+
+</script>
+
+
+
+</body>
+</html>

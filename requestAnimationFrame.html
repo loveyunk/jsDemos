@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>requestAnimationFrame</title>
+    <style>
+        div {
+            width: 10px;
+            height: 10px;
+            background: orange;
+            float: left;
+        }
+        button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        #stop {
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+<button id="start">start</button>
+<button id="stop">stop</button>
+
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+
+    var globalID;
+
+    function repeat () {
+        $('<div />').appendTo('body');
+        globalID = requestAnimationFrame(repeat);
+    }
+
+    globalID = requestAnimationFrame(repeat);
+
+    $('#stop').on('click', function () {
+        cancelAnimationFrame(globalID);
+    });
+
+</script>
+
+</body>
+</html>

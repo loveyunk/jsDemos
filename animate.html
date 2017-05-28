@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animate</title>
+    <style>
+        li {
+            list-style: none;
+            width: 300px;
+            height: 5px;
+            background-color: #ddd;
+            margin: 20px 0;
+        }
+
+        li > .bar {
+            width: 0;
+            height: 5px;
+            background-color: orange;
+        }
+
+        li:nth-child(1) > .bar {
+            animation: move 2s ease forwards;
+        }
+
+        li:nth-child(2) > .bar {
+            animation: move 2s ease .5s forwards;
+        }
+
+        li:nth-child(3) > .bar {
+            animation: move 2s ease 1s forwards;
+        }
+
+        li:nth-child(4) > .bar {
+            animation: move 2s ease 1.5s forwards;
+        }
+
+        li:nth-child(5) > .bar {
+            animation: move 2s ease 2s forwards;
+        }
+
+        @keyframes move {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <div class="bar"></div>
+            </li>
+            <li>
+                <div class="bar"></div>
+            </li>
+            <li>
+                <div class="bar"></div>
+            </li>
+            <li>
+                <div class="bar"></div>
+            </li>
+            <li>
+                <div class="bar"></div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
